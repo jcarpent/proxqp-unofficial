@@ -1,8 +1,9 @@
 name: CI - Linux/OSX/Windows - Conda
 
 on:
-  push:
-  pull_request:
+  # push:
+  # pull_request:
+  release:
 
 jobs:
   build-with-conda:

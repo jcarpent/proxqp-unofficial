@@ -1,10 +1,11 @@
 name: Release on GitHub & PyPI
 
 on:
-  pull_request:
-  release:
-    types:
-      - published
+  # pull_request:
+  # release:
+  #   types:
+  #     - published
+  push:
 
 jobs:
   build-wheel:
@@ -82,9 +83,7 @@ jobs:
 
       - name: Publish package to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
-        if: |
-          github.repository == 'Simple-Robotics/proxsuite' &&
-          (github.event_name == 'release' && github.event.action == 'published')
+
         with:
           user: __token__
           password: ${{ secrets.PYPI_TOKEN }}
